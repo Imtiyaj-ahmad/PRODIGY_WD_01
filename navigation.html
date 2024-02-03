@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title> Navigation Demo</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <a href="#" class="logo">College</a>
-            <ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a href="#">Brighland College</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
                 <li><a href="#"> Home</a></li>
                 <li><a href="#"> AboutUs</a></li>
                 <li><a href="#"> Courses</a></li>
@@ -16,17 +24,57 @@
                 <li><a href="#">Events</a></li>
                 <li><a href="#"> Gallery</a></li>
                 <li><a href="#"> ContactUs</a></li>
-            </ul>
-        </header>
-        <section class="banner">
-        </section>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+  <div class="banner"></div>
+  <div class="about">
+    <div class="content">
+      <div class="title">About Brightland College</div>
+      <p>Brightland College (BLC) is located in Nepalgunj-10. This institution is a thriving academic center of this region that enables a youth to excel in his/her chosen field with confidence to face the national and global challenges. The institution has been successfully conducting its academic program with the help of well experienced faculty members for last fourteen years.
+        Vision
+        
+        The vision of BLC is to establish itself as a model education center for its academic excellence. It is committed to develop competence, conscience, comparison and confidence in the personal quality of students so that they would enable themselves to meet all the challenges in the competitive world.
+        Mission
+        
+        This mission of BLC is to meet the necessary requirements of qualitative education among the students in every walks of life in far and wide communities of the nation and abroad.
+        Objectives
+        
+        The following are the main objectives of BLC:
+        
+                Maintain high degree of disciplined educational environment at premises of the institution.
+        
+                Adopt new and recent methods of teaching-learning that are student centered, student friendly, effective and practical.
+        
+                Develop total personality of students to make then enriched in personal and professional life.
+        
+                Conduct different extra-activities so that students will get environment and opportunity to explore their creativity and intelligence.
+        
+            Expand efforts to develop effective and dynamic advanced level human resource.</b>
+            </div>
+  </div>
 
-<script type="text/javascript">
-    window.addEventListener("scroll",function(){
-        var header=document.querySelector("header");
-        header.classList.toggle("sticky",window.scrollY>0);
-    })
-
-</script>
-    </body>
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+</body>
 </html>
